@@ -1,0 +1,66 @@
+library ieee; 
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+
+entity project is 
+port(
+   sen1 , sen2 ,sen3 :In std_logic;
+	display : out std_logic_vector(6 downto 0);
+	motor : out std_logic 
+);
+end project;
+
+architecture e1 of project is    
+signal  buff1 : integer range 0 to 9 ;
+begin 
+process(sen1,sen1,sen3)
+begin 
+if sen1 = '1' then
+   buff1 <= buff1 + 1 ;
+	end if;
+	
+if  sen2 = '1' then 
+
+	buff1 <= buff1 -1 ;
+	end if;
+
+	
+if  sen3 = '1' then 
+	motor <= '1';
+	end if;
+
+	
+if  sen3 = '0' then 
+	motor <= '0';
+	end if;
+	
+end process;
+process(buff1)
+begin 
+  case buff1 is 
+when 0 => 
+display<="1000000";
+when 1 => 
+display<="1111001";
+when 2=>
+ display<="0100100";
+when 3=> 
+display<="0110000";
+when 4 => 
+display<="0011001";
+when 5 => 
+display<="0010010";
+when 6=> 
+display<="0000010";
+when 7=> 
+display<="1111000";
+when 8=> 
+display<="0000000";
+when 9 => 
+display<="0010000";
+end case ;
+end process;
+
+end e1;
+	
