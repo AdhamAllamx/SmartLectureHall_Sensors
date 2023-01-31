@@ -1,0 +1,36 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+
+entity fulladd is
+	port(Cin, x, y: IN std_logic;
+			s, Cout: OUT std_logic);
+end fulladd;
+
+architecture arch of fulladd is
+begin
+	s<= x xOR y xOR Cin;
+	Cout <= (x and y) or (Cin and x) or (y and Cin);
+end arch;
+
+
+Entity adder4 is
+	port(Cin: IN std_logic;
+			X, Y: IN std_logic_vector(3 downto 0);
+			S: OUT std_logic_vector(3 downto 0);
+			Cout: out std_logic);
+end adder4;
+
+architecture behavior of adder4 is
+	Signal C: Std_logic_vector(1 to 3);
+	component fulladd is
+		port(Cin, x, y: IN std_logic;
+				s, Cout: OUT std_logic);
+	end component;
+	
+	begin
+		stage0: fulladd port map(Cin, X(0), Y(0), S(0), C(1));
+		stage1: fulladd port map(C(1), X(1), Y(1), S(1), C(2));
+		stage2: fulladd port map(C(2), X(2), Y(2), S(2), C(3));
+		stage3: fulladd port map(C(3), X(3), Y(3), S(3), Cout);
+	end behavior;
+		

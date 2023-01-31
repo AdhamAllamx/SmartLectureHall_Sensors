@@ -1,0 +1,164 @@
+|adder4
+Cin => fulladd:stage0.Cin
+a[0] => fulladd:stage0.x
+a[1] => fulladd:stage1.x
+a[2] => fulladd:stage2.x
+a[3] => fulladd:stage3.x
+b[0] => fulladd:stage0.y
+b[1] => fulladd:stage1.y
+b[2] => fulladd:stage2.y
+b[3] => fulladd:stage3.y
+sum[0] << fulladd:stage0.s
+sum[1] << fulladd:stage1.s
+sum[2] << fulladd:stage2.s
+sum[3] << fulladd:stage3.s
+Cout << fulladd:stage3.Cout
+Z[0] <= seg:seg0.Z[0]
+Z[1] <= seg:seg0.Z[1]
+Z[2] <= seg:seg0.Z[2]
+Z[3] <= seg:seg0.Z[3]
+Z[4] <= seg:seg0.Z[4]
+Z[5] <= seg:seg0.Z[5]
+Z[6] <= seg:seg0.Z[6]
+Yseg[0] << seg:seg0.Y[0]
+Yseg[1] << seg:seg0.Y[1]
+Yseg[2] << seg:seg0.Y[2]
+Yseg[3] << seg:seg0.Y[3]
+Yseg[4] << seg:seg0.Y[4]
+Yseg[5] << seg:seg0.Y[5]
+Yseg[6] << seg:seg0.Y[6]
+
+
+|adder4|fulladd:stage0
+Cin => s.IN1
+Cin => Cout.IN0
+Cin => Cout.IN0
+x => s.IN0
+x => Cout.IN0
+x => Cout.IN1
+y => s.IN1
+y => Cout.IN1
+y => Cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder4|fulladd:stage1
+Cin => s.IN1
+Cin => Cout.IN0
+Cin => Cout.IN0
+x => s.IN0
+x => Cout.IN0
+x => Cout.IN1
+y => s.IN1
+y => Cout.IN1
+y => Cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder4|fulladd:stage2
+Cin => s.IN1
+Cin => Cout.IN0
+Cin => Cout.IN0
+x => s.IN0
+x => Cout.IN0
+x => Cout.IN1
+y => s.IN1
+y => Cout.IN1
+y => Cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder4|fulladd:stage3
+Cin => s.IN1
+Cin => Cout.IN0
+Cin => Cout.IN0
+x => s.IN0
+x => Cout.IN0
+x => Cout.IN1
+y => s.IN1
+y => Cout.IN1
+y => Cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder4|seg:seg0
+X[0] => Mux0.IN36
+X[0] => Mux1.IN36
+X[0] => Mux2.IN36
+X[0] => Mux3.IN36
+X[0] => Mux4.IN36
+X[0] => Mux5.IN36
+X[0] => Mux6.IN36
+X[0] => Mux9.IN36
+X[0] => Mux11.IN36
+X[1] => Mux0.IN35
+X[1] => Mux1.IN35
+X[1] => Mux2.IN35
+X[1] => Mux3.IN35
+X[1] => Mux4.IN35
+X[1] => Mux5.IN35
+X[1] => Mux6.IN35
+X[1] => Mux8.IN19
+X[1] => Mux9.IN35
+X[1] => Mux10.IN19
+X[1] => Mux11.IN35
+X[1] => Mux12.IN19
+X[2] => Mux0.IN34
+X[2] => Mux1.IN34
+X[2] => Mux2.IN34
+X[2] => Mux3.IN34
+X[2] => Mux4.IN34
+X[2] => Mux5.IN34
+X[2] => Mux6.IN34
+X[2] => Mux7.IN10
+X[2] => Mux8.IN18
+X[2] => Mux9.IN34
+X[2] => Mux10.IN18
+X[2] => Mux11.IN34
+X[2] => Mux12.IN18
+X[3] => Mux0.IN33
+X[3] => Mux1.IN33
+X[3] => Mux2.IN33
+X[3] => Mux3.IN33
+X[3] => Mux4.IN33
+X[3] => Mux5.IN33
+X[3] => Mux6.IN33
+X[3] => Mux7.IN9
+X[3] => Mux8.IN17
+X[3] => Mux9.IN33
+X[3] => Mux10.IN17
+X[3] => Mux11.IN33
+X[3] => Mux12.IN17
+X[4] => Mux0.IN32
+X[4] => Mux1.IN32
+X[4] => Mux2.IN32
+X[4] => Mux3.IN32
+X[4] => Mux4.IN32
+X[4] => Mux5.IN32
+X[4] => Mux6.IN32
+X[4] => Mux7.IN8
+X[4] => Mux8.IN16
+X[4] => Mux9.IN32
+X[4] => Mux10.IN16
+X[4] => Mux11.IN32
+X[4] => Mux12.IN16
+Y[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Y[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Y[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Y[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+Z[0] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+Z[1] <= <GND>
+Z[2] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+Z[3] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+Z[4] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+Z[5] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+Z[6] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+
+
